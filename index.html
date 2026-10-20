@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cirengify - AI Flavor Assistant</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <!-- Header / Navbar -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-indigo-600 flex items-center gap-2">
+                ⚡ Cirengify <span class="text-xs bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded-full font-medium">AI-Powered</span>
+            </h1>
+            <a href="#order" class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold px-4 py-2 rounded-lg transition">Pesan Sekarang</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="max-w-4xl mx-auto px-6 py-12 text-center">
+        <span class="bg-orange-100 text-orange-700 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">Inovasi Kuliner Jombang</span>
+        <h2 class="text-3xl md:text-5xl font-extrabold mt-4 text-slate-900 tracking-tight">
+            Temukan Cireng Favoritmu dengan Bantuan AI
+        </h2>
+        <p class="mt-4 text-slate-600 text-base md:text-lg max-w-2xl mx-auto">
+            Bingung pilih rasa? Biarkan AI kami meracik rekomendasi rasa dan tingkat kepedasan paling pas berdasarkan selera dan mood kamu hari ini!
+        </p>
+    </section>
+
+    <!-- AI Interactive Widget Section -->
+    <section class="max-w-xl mx-auto px-6 mb-16">
+        <div class="bg-white p-6 md:p-8 rounded-2xl shadow-xl border border-slate-100">
+            <h3 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+                🤖 AI Flavor Matcher Assistant
+            </h3>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Bagaimana mood kamu hari ini?</label>
+                    <select id="mood" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                        <option value="semangat">Bersemangat & Butuh Tantangan</option>
+                        <option value="santai">Santai & Ingin Nyemil Tenang</option>
+                        <option value="lelah">Lelah & Butuh Booster Semangat</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Seberapa kuat kamu dengan rasa pedas?</label>
+                    <select id="spicy" class="w-full p-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+                        <option value="mild">Anti Pedas (Aman)</option>
+                        <option value="medium">Sedang (Pas di Lidah)</option>
+                        <option value="extreme">Ekstrem (Pecinta Pedas Sejati)</option>
+                    </select>
+                </div>
+
+                <button onclick="runAIRecommendation()" class="w-full bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-semibold py-3 rounded-xl shadow-md hover:opacity-95 transition">
+                    Minta Rekomendasi AI ✨
+                </button>
+            </div>
+
+            <!-- AI Result Box -->
+            <div id="ai-result" class="hidden mt-6 p-4 bg-indigo-50 border border-indigo-100 rounded-xl text-left">
+                <h4 class="font-bold text-indigo-900 text-sm mb-1">Hasil Analisis AI:</h4>
+                <p id="result-text" class="text-indigo-800 text-sm"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Grid -->
+    <section id="order" class="max-w-4xl mx-auto px-6 pb-20">
+        <h3 class="text-2xl font-bold text-slate-900 mb-6 text-center">Menu Unggulan Kami</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+            <!-- Product 1 -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                <div>
+                    <div class="bg-slate-100 h-40 rounded-xl mb-4 flex items-center justify-center text-slate-400 font-medium">[Ilustrasi Foto Cireng]</div>
+                    <h4 class="font-bold text-lg text-slate-900">Cireng Krispi Keju Mozzarella</h4>
+                    <p class="text-slate-600 text-sm mt-1">Cireng renyah di luar, meleleh di dalam dengan keju berkualitas tinggi.</p>
+                </div>
+                <div class="mt-6 flex justify-between items-center">
+                    <span class="font-bold text-indigo-600 text-lg">Rp15.000</span>
+                    <button onclick="alert('Pesanan Cireng Keju Mozzarella berhasil ditambahkan!')" class="bg-slate-900 hover:bg-slate-800 text-white text-sm px-4 py-2 rounded-lg transition">Pilih Menu</button>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-col justify-between">
+                <div>
+                    <div class="bg-slate-100 h-40 rounded-xl mb-4 flex items-center justify-center text-slate-400 font-medium">[Ilustrasi Foto Cireng]</div>
+                    <h4 class="font-bold text-lg text-slate-900">Cireng Bledhek Extra Pedas</h4>
+                    <p class="text-slate-600 text-sm mt-1">Disiram bumbu rujak spesial cabai rawit segar khas Jombang.</p>
+                </div>
+                <div class="mt-6 flex justify-between items-center">
+                    <span class="font-bold text-indigo-600 text-lg">Rp12.000</span>
+                    <button onclick="alert('Pesanan Cireng Bledhek berhasil ditambahkan!')" class="bg-slate-900 hover:bg-slate-800 text-white text-sm px-4 py-2 rounded-lg transition">Pilih Menu</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-8 text-center text-slate-500 text-sm">
+        <p>&copy; 2026 Cirengify AI. Prototipe Wirausaha Digital Pelajar.</p>
+    </footer>
+
+    <!-- JavaScript for AI Simulation Logic -->
+    <script>
+        function runAIRecommendation() {
+            const mood = document.getElementById('mood').value;
+            const spicy = document.getElementById('spicy').value;
+            const resultBox = document.getElementById('ai-result');
+            const resultText = document.getElementById('result-text');
+
+            let recommendation = "";
+
+            if (mood === 'semangat' && spicy === 'extreme') {
+                recommendation = "Rekomendasi AI: **Cireng Bledhek Extra Pedas** dengan bumbu rujak level maksimal! Cocok untuk memacu adrenalin dan energi kamu.";
+            } else if (mood === 'santai' && spicy === 'mild') {
+                recommendation = "Rekomendasi AI: **Cireng Krispi Keju Mozzarella** yang gurih dan lembut di mulut. Pas dinikmati sambil bersantai.";
+            } else {
+                recommendation = "Rekomendasi AI: **Paket Mix Spesial (Keju & Bumbu Rujak Sedang)**. Pilihan seimbang untuk mengembalikan energi dan mood positifmu!";
+            }
+
+            resultBox.classList.remove('hidden');
+            resultText.innerHTML = recommendation;
+        }
+    </script>
+</body>
+</html>
